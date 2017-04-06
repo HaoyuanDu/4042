@@ -12,12 +12,15 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#include <iostream>
+using namespace std;
+
 
 #include "Store.h"
 
 ProdList& Store::getStock()     { return stock; }
 
-CustArray& Store::getCustomers() { return customers; }
+list<Customer*>& Store::getCustomers() { return customers; }
 
 void Store::addProd(Product* prod)
 {
@@ -26,6 +29,6 @@ void Store::addProd(Product* prod)
 
 void Store::addCust(Customer* cust)
 {
-  customers.add(cust);
+  customers.push_front(cust);
 }
 

@@ -17,7 +17,6 @@
 
 #include "InvControl.h"
 #include "Store.h"
-#include "CustArray.h"
 #include "PurchaseArray.h"
 
 InvControl::InvControl()
@@ -212,10 +211,12 @@ void InvControl::pPurchase(int cd, int pd)
 
 
 
+for(list<Customer*>::iterator list_iter = store.getCustomers().begin(); list_iter != store.getCustomers().end(); list_iter++)
+  {
 
-for(int i=0; i<store.getCustomers().getSize();i++)
-      {
-        if(cd==store.getCustomers().get(i)->getId())
+    Customer* cust = *list_iter;
+    
+        if(cd==cust->getId())
         {
           cusFound+=1;
          
@@ -236,7 +237,7 @@ for(int i=0; i<store.getCustomers().getSize();i++)
             if (p!=NULL && p->getUnits()>0){
               
               p->reduceUnits();
-              store.getCustomers().get(i)->setPoints(p->getPrice(),store.getCustomers().get(i)->getPoints());
+              cust->setPoints(p->getPrice(),cust->getPoints());
 
 
               //cout<<"price:"<<store.getStock().get(j)->getPrice()<<" Total Points you have is "<<store.getCustomers().get(i)->getPoints()<<endl;
@@ -247,11 +248,11 @@ for(int i=0; i<store.getCustomers().getSize();i++)
 
 
               int check=0;
-              for (int k=0;k<store.getCustomers().get(i)->getPurchase().getSize();++k){
+              for (int k=0;k<cust->getPurchase().getSize();++k){
                // cout<<"22222222222"<<endl;
-                if (store.getCustomers().get(i)->getPurchase().get(k)->getId()==pd){
+                if (cust->getPurchase().get(k)->getId()==pd){
                  // cout<<"33333333333"<<endl;
-                  store.getCustomers().get(i)->getPurchase().get(k)->addUnits();
+                  cust->getPurchase().get(k)->addUnits();
                   check=10;
                 }
 
@@ -261,7 +262,7 @@ for(int i=0; i<store.getCustomers().getSize();i++)
                 //view.printSuccess("Your adding new Purchase!");
                 
                 Purchase *p1=new Purchase(pd, 1);
-                store.getCustomers().get(i)->getPurchase().add(p1);
+                cust->getPurchase().add(p1);
                 view.printSuccess("Purchase has been made!");
               }
             }

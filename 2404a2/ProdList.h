@@ -3,6 +3,7 @@
 
 #include "defs.h"
 #include "Product.h"
+#include "Date.h"
 
 
 class ProdList{

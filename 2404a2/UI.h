@@ -18,10 +18,12 @@
 using namespace std;
 
 #include "ProdList.h"
-#include "CustArray.h"
 #include "PurchaseArray.h"
 #include "Purchase.h"
 #include "Customer.h"
+#include <list>
+#include <iterator>
+#include <algorithm>
 
 class UI
 {
@@ -38,7 +40,7 @@ class UI
     void printSuccess(string);
     void printUsageError();
     void printStock(ProdList&);
-    void printCustomers(CustArray&);
+    void printCustomers(list<Customer*>&);
     void pause();
 
   private:

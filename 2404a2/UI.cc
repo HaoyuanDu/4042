@@ -94,12 +94,13 @@ void UI::printStock(ProdList& arr)
 
  } 
 
-void UI::printCustomers(CustArray& arr)
+void UI::printCustomers(list<Customer*>& arr)
 {
   cout << endl << "CUSTOMERS: " << endl << endl;
+  for(list<Customer*>::iterator list_iter = arr.begin(); list_iter != arr.end(); list_iter++)
+  {
 
-  for (int i=0; i<arr.getSize(); i++) {
-    Customer* cust = arr.get(i);
+    Customer* cust = *list_iter;
     cout<<cust->getId()<<"  "<<setw(10)<<cust->getName()
          << "  " << setw(4) << cust->getPoints() << endl;
 
@@ -107,6 +108,7 @@ void UI::printCustomers(CustArray& arr)
           cout<<"     Product id: "<<cust->getPurchase().get(j)->getId()<<", Units brought: "<<cust->getPurchase().get(j)->getUnits()<<endl;
          }
   }
+
 }
 
 /*void UI::userfound()

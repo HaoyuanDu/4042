@@ -16,8 +16,10 @@
 
 #include "Store.h"
 #include "UI.h"
-#include "CustArray.h"
 #include "PurchaseArray.h"
+#include <list>
+#include <iterator>
+#include <algorithm>
 class InvControl
 {
   public:

@@ -16,19 +16,20 @@
 
 #include "ProdList.h"
 #include "Product.h"
-#include "CustArray.h"
 #include "Customer.h"
-
+#include <list>
+#include <iterator>
+#include <algorithm>
 class Store
 {
   public:
     void       addProd(Product*);
     void       addCust(Customer*);
     ProdList& getStock();
-    CustArray& getCustomers();
+    list<Customer*>& getCustomers();
   private:
     ProdList  stock;
-    CustArray  customers;
+    list<Customer*>  customers;
 };
 
 #endif
