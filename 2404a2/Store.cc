@@ -15,7 +15,7 @@
 
 #include "Store.h"
 
-ProdArray& Store::getStock()     { return stock; }
+ProdList& Store::getStock()     { return stock; }
 
 CustArray& Store::getCustomers() { return customers; }
 

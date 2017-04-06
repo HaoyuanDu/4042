@@ -17,7 +17,7 @@
 #include <string>
 using namespace std;
 
-#include "ProdArray.h"
+#include "ProdList.h"
 #include "CustArray.h"
 #include "PurchaseArray.h"
 #include "Purchase.h"
@@ -30,13 +30,14 @@ class UI
     void mainMenu(int&);
     void adminMenu(int&);
     void cashierMenu(int&);
+    void productCategory(int&);
     void promptForInt(string, int&);
     void promptForStr(string, string&);
     void promptForFloat(string, float&);
     void printError(string);
     void printSuccess(string);
     void printUsageError();
-    void printStock(ProdArray&);
+    void printStock(ProdList&);
     void printCustomers(CustArray&);
     void pause();
 

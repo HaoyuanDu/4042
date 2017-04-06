@@ -45,6 +45,24 @@ void UI::adminMenu(int& choice)
   }
 }
 
+void UI::productCategory(int& choice)
+{
+  string str;
+
+  choice = -1;
+
+  cout<< "\n\n\n          Choose product category\n\n";
+  cout<< "          1. Dairy \n\n";
+  cout<< "          2. Bakery \n\n";
+  cout<< "          3. CoffeeTea \n\n";
+  cout<< "          4. Meat \n\n";
+  cout<< "          5. MiscGoods\n\n";
+
+  while (choice < 1 || choice > 5) {
+    cout << "Enter your selection:  ";
+    choice = readInt();
+  }
+}
 void UI::cashierMenu(int& choice)
 {
   string str;
@@ -63,30 +81,18 @@ void UI::cashierMenu(int& choice)
   }
 }
 
-void UI::printStock(ProdArray& arr)
+void UI::printStock(ProdList& arr)
 {
   // The stringstream class helps us convert from numeric values to string.
   // The I/O manipulation functions help us make the output look pretty.
-
-  stringstream ss;
-
+  string s;
+  
+  arr.toString(s);
   cout << endl << "STOCK: " << endl << endl;
-  cout << " ID                                 Name             Size    Qty    Price" << endl;
+  cout << s << endl;
   cout << " --                                 ----             ----    ---    -----" << endl;
 
-  for (int i=0; i<arr.getSize(); i++) {
-
-    Product* prod = arr.get(i);
-
-    cout << prod->getId()   << "  " << setw(40) << prod->getName() << "  "
-         << setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
-
-    ss << setw(6) << fixed << setprecision(2) << prod->getPrice();
-
-    cout << "$" << ss.str() << endl;
-    ss.str("");
-  }
-}
+ } 
 
 void UI::printCustomers(CustArray& arr)
 {

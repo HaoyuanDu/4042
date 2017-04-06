@@ -1,4 +1,4 @@
-OBJ = main.o InvControl.o Store.o Product.o UI.o ProdArray.o CustArray.o Customer.o PurchaseArray.o Purchase.o
+OBJ = main.o InvControl.o Store.o Product.o UI.o ProdList.o Date.o ExpirationBehaviour.o CustArray.o TaxationBehaviour.o Customer.o PurchaseArray.o Purchase.o
 
 cushop:	$(OBJ)
 	g++ -o cushop $(OBJ)
@@ -12,14 +12,35 @@ InvControl.o:	InvControl.cc InvControl.h Store.h UI.h
 UI.o:	UI.cc UI.h 
 	g++ -c UI.cc
 
-Store.o:	Store.cc Store.h ProdArray.h  
+Order.o:	Order.cc Order.h 
+	g++ -g -c Order.cc
+
+OrderArray.o:	OrderArray.cc OrderArray.h 
+	g++ -g -c OrderArray.cc
+
+OrderServer.o:	OrderServer.cc OrderServer.h 
+	g++ -g -c OrderServer.cc
+
+Date.o:	Date.cc Date.h defs.h
+	g++ -c Date.cc
+
+
+TaxationBehaviour.o:	TaxationBehaviour.cc TaxationBehaviour.h   
+	g++ -c TaxationBehaviour.cc
+
+
+ExpirationBehaviour.o:	ExpirationBehaviour.cc ExpirationBehaviour.h Date.h defs.h
+	g++ -c ExpirationBehaviour.cc
+
+
+Store.o:	Store.cc Store.h ProdList.h  
 	g++ -c Store.cc
 
-Product.o:	Product.cc Product.h 
+Product.o:	Product.cc Product.h Date.h defs.h
 	g++ -c Product.cc
 
-ProdArray.o:	ProdArray.cc ProdArray.h Product.h defs.h
-	g++ -c ProdArray.cc
+ProdList.o:	ProdList.cc ProdList.h Product.h defs.h
+	g++ -c ProdList.cc
 
 CustArray.o:	CustArray.cc CustArray.h Customer.h defs.h
 	g++ -c CustArray.cc

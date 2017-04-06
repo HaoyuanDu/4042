@@ -16,6 +16,9 @@
 
 #define MAX_ARR    64
 #define MAGIC_NUM  42
+#define MAX_MONTH   12
+#define MAX_DAY   30
+#define MAX_EXP   730
 
 
 #endif

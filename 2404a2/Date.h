@@ -11,24 +11,27 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef STORE_H
-#define STORE_H
+#ifndef DATE_H
+#define DATE_H
 
-#include "ProdList.h"
-#include "Product.h"
-#include "CustArray.h"
-#include "Customer.h"
+#include <string>
+using namespace std;
+#include "defs.h"
 
-class Store
+class Date
 {
   public:
-    void       addProd(Product*);
-    void       addCust(Customer*);
-    ProdList& getStock();
-    CustArray& getCustomers();
+    Date(int=0, int=0, int=0);
+    Date&   operator+=(int);
+    Date   operator+(int);
+    bool   operator>(Date&);
+    void toString(string& outStr);
   private:
-    ProdList  stock;
-    CustArray  customers;
+    int day;
+    int month;
+    int year;
+    
 };
+
 
 #endif

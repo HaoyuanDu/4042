@@ -10,25 +10,18 @@
 /*  written consent of the author, is illegal.     */
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
+using namespace std;
+#include "TaxationBehaviour.h"
 
-#ifndef STORE_H
-#define STORE_H
 
-#include "ProdList.h"
-#include "Product.h"
-#include "CustArray.h"
-#include "Customer.h"
 
-class Store
-{
-  public:
-    void       addProd(Product*);
-    void       addCust(Customer*);
-    ProdList& getStock();
-    CustArray& getCustomers();
-  private:
-    ProdList  stock;
-    CustArray  customers;
-};
+float Taxable::computeTax(float p)
+{ 
+  return p*0.13;
 
-#endif
+}
+float NonTaxable::computeTax(float p)
+{ 
+  return 0;
+
+}

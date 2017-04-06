@@ -10,25 +10,18 @@
 /*  written consent of the author, is illegal.     */
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
+using namespace std;
+#include "ExpirationBehaviour.h"
 
-#ifndef STORE_H
-#define STORE_H
 
-#include "ProdList.h"
-#include "Product.h"
-#include "CustArray.h"
-#include "Customer.h"
 
-class Store
-{
-  public:
-    void       addProd(Product*);
-    void       addCust(Customer*);
-    ProdList& getStock();
-    CustArray& getCustomers();
-  private:
-    ProdList  stock;
-    CustArray  customers;
-};
+Date Perishable::computeExpDate(Date& mfDate,int sp)
+{ 
+  return mfDate+sp;
 
-#endif
+}
+Date NonPerishable::computeExpDate(Date& mfDate,int sp)
+{ 
+  return mfDate+MAX_EXP;
+
+}
