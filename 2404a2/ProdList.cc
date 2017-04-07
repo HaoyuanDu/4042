@@ -18,6 +18,7 @@ ProdList::~ProdList(){
 	cout << "Product Destr" << endl;
 	Node *currNode;
 	Node *prevNode;
+	int n = 0;
 
 	currNode = head;
 	prevNode = NULL;
@@ -28,6 +29,9 @@ ProdList::~ProdList(){
 			currNode = currNode->next;
 			delete prevNode->product;
 			delete prevNode;
+			n++;
+			cout<<n<<endl;
+
 		}
 	}
 }

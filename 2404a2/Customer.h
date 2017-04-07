@@ -23,7 +23,9 @@ using namespace std;
 
 class Customer
 {
+
   public:
+
     Customer(string="Unknown");
     int    getId();
     string getName();
